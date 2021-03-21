@@ -72,46 +72,6 @@ int remove_Pilha(Pilha *pi)
     return 1;
 }
 
-int tamanho_Pilha(Pilha *pi)
-{
-    if (pi == NULL)
-        return 0;
-    int cont = 0;
-    Elem *no = *pi;
-    while (no != NULL)
-    {
-        cont++;
-        no = no->prox;
-    }
-    return cont;
-}
-
-int Pilha_cheia(Pilha *pi)
-{
-    return 0;
-}
-
-int Pilha_vazia(Pilha *pi)
-{
-    if (pi == NULL)
-        return 1;
-    if (*pi == NULL)
-        return 1;
-    return 0;
-}
-
-void imprime_Pilha(Pilha *pi)
-{
-    if (pi == NULL)
-        return;
-    Elem *no = *pi;
-    while (no != NULL)
-    {
-        printf("Casa: %d\n", no->posicao);
-        printf("-------------------------------\n");
-        no = no->prox;
-    }
-}
 void cria_labirinto(int *labirinto[30][30])
 {
     time_t t;
@@ -213,7 +173,7 @@ void andar(int *labirinto[30][30], Pilha *pi)
                 labirinto[i][j] = rato;
             }
         }
-        Sleep(250);
+        Sleep(150);
         system("cls");
         imprime_lab(labirinto);
     } while (atual != saida);
